@@ -1,7 +1,6 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
 const commonConfiguration = require('./webpack.common.js')
-const ip = require('internal-ip')
 const portFinderSync = require('portfinder-sync')
 
 const infoColor = (_message) =>
@@ -38,7 +37,7 @@ module.exports = merge(
             {
                 const port = devServer.options.port
                 const https = devServer.options.https ? 's' : ''
-                const localIp = ip.v4.sync()
+                const localIp = "192.168.1.126"
                 const domain1 = `http${https}://${localIp}:${port}`
                 const domain2 = `http${https}://localhost:${port}`
                 
