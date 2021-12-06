@@ -1,9 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
 
-interface test {
-    manger: string;
-}
 // Scene
 const scene = new THREE.Scene();
 
