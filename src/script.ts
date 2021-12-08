@@ -38,7 +38,7 @@ renderer.setSize(sizes.width, sizes.height);
 /**
  * Animate
  */
-gsap.to(mesh.rotation, { duration: 10, delay: 1, x: 2 });
+gsap.to(mesh.rotation, { duration: 1, x: 5, repeat:-1 });
 
 
 function tick()
