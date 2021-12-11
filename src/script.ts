@@ -15,8 +15,8 @@ scene.add(mesh);
 
 // Sizes
 const sizes = {
-    width: 800,
-    height: 600
+     width: window.innerWidth,
+    height: window.innerHeight
 }
 // Axe Helper
 const axesHelper = new THREE.AxesHelper(2);
@@ -50,4 +50,47 @@ function tick()
     window.requestAnimationFrame(tick);
 }
 
-tick();
+
+window.onload = () => {
+    tick();
+}
+
+window.addEventListener('resize', () =>
+{
+    // Update sizes
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+})
+
+window.addEventListener('dblclick', () =>
+{
+    const fullscreenElement = document.fullscreenElement;
+    const canvas = document.querySelector('canvas.webgl');
+
+    if(!canvas) {
+        return;
+    }
+
+    if(!fullscreenElement)
+    {
+        if(canvas.requestFullscreen)
+        {
+            canvas.requestFullscreen()
+        }
+    }
+    else
+    {
+        if(document.exitFullscreen)
+        {
+            document.exitFullscreen()
+        }
+        
+    }
+})
