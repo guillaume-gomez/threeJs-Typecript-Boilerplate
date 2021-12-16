@@ -1,5 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import gsap from 'gsap';
 
 // Scene
@@ -34,6 +35,10 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height);
 //renderer.render(scene, camera);
+
+// Controls
+const controls = new OrbitControls( camera, renderer.domElement );
+
 
 /**
  * Animate
